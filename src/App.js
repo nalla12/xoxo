@@ -1,25 +1,65 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState} from "react";
+import {Col, Grid, Row} from "@zendeskgarden/react-grid";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [bla, setBla] = useState(false);
+    const Value = () => {
+        return (bla ? 'x' : 'o');
+    };
+    const handleClick = () => {
+        setBla(!bla);
+        console.log(bla)
+    };
+
+    return (
+        <div className="App">
+            <Grid>
+                <Row>
+                    <Col>
+                        <button onClick={handleClick}
+                                className="h-20 w-full bg-amber-300 border-2 border-solid border-amber-400"><Value /></button>
+                    </Col>
+                    <Col>
+                        <button onClick={handleClick}
+                                className="h-20 w-full bg-amber-300 border-2 border-solid border-amber-400"><Value /></button>
+                    </Col>
+                    <Col>
+                        <button onClick={handleClick}
+                                className="h-20 w-full bg-amber-300 border-2 border-solid border-amber-400"><Value /></button>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <button onClick={handleClick}
+                                className="h-20 w-full bg-amber-300 border-2 border-solid border-amber-400"><Value /></button>
+                    </Col>
+                    <Col>
+                        <button onClick={handleClick}
+                                className="h-20 w-full bg-amber-300 border-2 border-solid border-amber-400"><Value /></button>
+                    </Col>
+                    <Col>
+                        <button onClick={handleClick}
+                                className="h-20 w-full bg-amber-300 border-2 border-solid border-amber-400"><Value /></button>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <button onClick={handleClick}
+                                className="h-20 w-full bg-amber-300 border-2 border-solid border-amber-400"><Value /></button>
+                    </Col>
+                    <Col>
+                        <button onClick={handleClick}
+                                className="h-20 w-full bg-amber-300 border-2 border-solid border-amber-400"><Value /></button>
+                    </Col>
+                    <Col>
+                        <button onClick={handleClick}
+                                className="h-20 w-full bg-amber-300 border-2 border-solid border-amber-400"><Value /></button>
+                    </Col>
+                </Row>
+            </Grid>
+        </div>
+    );
 }
 
 export default App;
