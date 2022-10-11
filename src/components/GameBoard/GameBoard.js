@@ -1,44 +1,20 @@
-import React, {useState} from 'react';
 import {Col, Grid, Row} from '@zendeskgarden/react-grid';
 
-const GameBoard = () => {
-    const [fields, setFields] = useState([
-        [[''], [''], ['']],
-        [[''], [''], ['']],
-        [[''], [''], ['']],
-    ]);
-
-    const handleClick = (event) => {
-        const val = event.target.value;
-        switch (val) {
-            case '':
-                setFields('X');
-                break;
-            case 'X':
-                setFields('O');
-                break;
-            case 'O':
-                setFields('');
-                break;
-            default:
-                setFields('Hi');
-                break;
-        }
-    };
-
+const GameBoard = ({fields, handleClick}) => {
     return (
         <div>
             <Grid className="pt-4">
-                {fields.map((row, index) => (
-                    <Row key={index} className="pb-4">
-                        {row.map((col, index) => (
-                            <Col key={index}>
+                {fields.map((row, rowIndex) => (
+                    <Row key={rowIndex} className="pb-4">
+                        {row.map((col, colIndex) => (
+                            <Col key={colIndex}>
                                 <button
                                     className="h-20 w-full bg-amber-300 border-2 border-solid border-amber-400"
                                     onClick={handleClick}
                                     value={col[0]}
+                                    data-id={`${rowIndex}-${colIndex}`}
                                 >
-                                    {col[0]}
+                                    <span className="text-2xl">{col[0]}</span>
                                 </button>
                             </Col>
                         ))}
