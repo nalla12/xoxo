@@ -11,10 +11,10 @@ const GameBoard = ({fields, handleClick}) => {
                                 <button
                                     className="h-20 w-full bg-amber-300 border-2 border-solid border-amber-400"
                                     onClick={handleClick}
-                                    value={col[0]}
+                                    value={col}
                                     data-id={`${rowIndex}-${colIndex}`}
                                 >
-                                    <span className="text-2xl">{col[0]}</span>
+                                    <span className="text-2xl">{col}</span>
                                 </button>
                             </Col>
                         ))}

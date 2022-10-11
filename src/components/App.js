@@ -4,9 +4,9 @@ import {useState} from 'react';
 
 function App() {
     const [fields, setFields] = useState([
-        [[''], [''], ['']],
-        [[''], [''], ['']],
-        [[''], [''], ['']],
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', ''],
     ]);
 
     const handleClick = (event) => {
@@ -18,25 +18,25 @@ function App() {
         switch (val) {
             case '':
                 setFields(() => {
-                    newFields[rowIndex][colIndex][0] = 'X';
+                    newFields[rowIndex][colIndex] = 'X';
                     return newFields;
                 });
                 break;
             case 'X':
                 setFields(() => {
-                    newFields[rowIndex][colIndex][0] = 'O';
+                    newFields[rowIndex][colIndex] = 'O';
                     return newFields;
                 });
                 break;
             case 'O':
                 setFields(() => {
-                    newFields[rowIndex][colIndex][0] = '';
+                    newFields[rowIndex][colIndex] = '';
                     return newFields;
                 });
                 break;
             default:
                 setFields(() => {
-                    newFields[rowIndex][colIndex][0] = 'X';
+                    newFields[rowIndex][colIndex] = 'X';
                     return newFields;
                 });
                 break;
