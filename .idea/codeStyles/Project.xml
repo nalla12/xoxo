@@ -1,0 +1,52 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <CssCodeStyleSettings>
+      <option name="USE_DOUBLE_QUOTES" value="false" />
+    </CssCodeStyleSettings>
+    <JSCodeStyleSettings version="0">
+      <option name="FORCE_SEMICOLON_STYLE" value="true" />
+      <option name="USE_DOUBLE_QUOTES" value="false" />
+      <option name="FORCE_QUOTE_STYlE" value="true" />
+      <option name="ENFORCE_TRAILING_COMMA" value="WhenMultiline" />
+    </JSCodeStyleSettings>
+    <LessCodeStyleSettings>
+      <option name="USE_DOUBLE_QUOTES" value="false" />
+    </LessCodeStyleSettings>
+    <ScssCodeStyleSettings>
+      <option name="USE_DOUBLE_QUOTES" value="false" />
+    </ScssCodeStyleSettings>
+    <TypeScriptCodeStyleSettings version="0">
+      <option name="USE_DOUBLE_QUOTES" value="false" />
+    </TypeScriptCodeStyleSettings>
+    <codeStyleSettings language="JSON">
+      <indentOptions>
+        <option name="INDENT_SIZE" value="4" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="JavaScript">
+      <option name="ALIGN_MULTILINE_PARAMETERS" value="false" />
+      <option name="ALIGN_MULTILINE_FOR" value="false" />
+    </codeStyleSettings>
+    <codeStyleSettings language="LESS">
+      <indentOptions>
+        <option name="INDENT_SIZE" value="4" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="SCSS">
+      <indentOptions>
+        <option name="INDENT_SIZE" value="4" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="Vue">
+      <indentOptions>
+        <option name="INDENT_SIZE" value="4" />
+        <option name="TAB_SIZE" value="4" />
+      </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="yaml">
+      <indentOptions>
+        <option name="INDENT_SIZE" value="4" />
+      </indentOptions>
+    </codeStyleSettings>
+  </code_scheme>
+</component>
