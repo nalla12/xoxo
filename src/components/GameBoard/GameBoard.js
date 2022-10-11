@@ -21,7 +21,7 @@ const GameBoard = () => {
                 setFields('');
                 break;
             default:
-                setFields('X');
+                setFields('Hi');
                 break;
         }
     };
