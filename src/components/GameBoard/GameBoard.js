@@ -1,15 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Col, Grid, Row} from '@zendeskgarden/react-grid';
 
 const GameBoard = () => {
-    const fields = [
-        [['1'], ['2'], ['3']],
-        [['4'], ['5'], ['6']],
-        [['7'], ['8'], ['9']],
-    ];
+    const [fields, setFields] = useState([
+        [[''], [''], ['']],
+        [[''], [''], ['']],
+        [[''], [''], ['']],
+    ]);
 
     const handleClick = (event) => {
-        alert('You clicked on ' + event.target.value);
+        const val = event.target.value;
+        switch (val) {
+            case '':
+                setFields('X');
+                break;
+            case 'X':
+                setFields('O');
+                break;
+            case 'O':
+                setFields('');
+                break;
+            default:
+                setFields('X');
+                break;
+        }
     };
 
     return (
