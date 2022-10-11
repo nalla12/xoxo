@@ -549,22 +549,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.m-2 {
-  margin: 0.5rem;
-}
-
-.m-4 {
-  margin: 1rem;
-}
-
-.m-6 {
-  margin: 1.5rem;
-}
-
-.m-1 {
-  margin: 0.25rem;
-}
-
 .h-20 {
   height: 5rem;
 }
@@ -589,10 +573,6 @@ video {
 .bg-amber-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(252 211 77 / var(--tw-bg-opacity));
-}
-
-.pb-2 {
-  padding-bottom: 0.5rem;
 }
 
 .pt-4 {
