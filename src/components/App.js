@@ -1,6 +1,9 @@
 import './App.css';
 import GameBoard from './GameBoard/GameBoard';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import GameId from './GameId';
+
+const randomId = Date.now().toString(36).slice(2);
 
 function App() {
     const [fields, setFields] = useState([
@@ -8,6 +11,12 @@ function App() {
         ['', '', ''],
         ['', '', ''],
     ]);
+    const [asString, setAsString] = useState('');
+    const [gameId, setGameId] = useState(randomId);
+
+    useEffect(() => {
+        setAsString(JSON.stringify(fields));
+    }, [fields]);
 
     const handleClick = (event) => {
         const val = event.target.value;
@@ -44,7 +53,8 @@ function App() {
     };
 
     return (
-        <div className="App">
+        <div className='App h-screen grid gap-4 content-center'>
+            <GameId gameId={gameId} setGameId={setGameId} />
             <GameBoard fields={fields} handleClick={handleClick} />
         </div>
     );

@@ -17,7 +17,7 @@
         "semi": [2, "always"],
         "comma-dangle": ["error", "always-multiline"],
         "quotes": ["error", "single", { "allowTemplateLiterals": true }],
-        "jsx-quotes": 1,
+        "jsx-quotes": 0,
         "react/display-name": [1, { "ignoreTranspilerName": false }],
         "react/forbid-prop-types": [1, { "forbid": ["any"] }],
         "react/jsx-boolean-value": 1,

@@ -549,43 +549,75 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.flex {
+  display: flex !important;
+}
+
+.grid {
+  display: grid !important;
+}
+
+.h-screen {
+  height: 100vh !important;
+}
+
 .h-20 {
-  height: 5rem;
+  height: 5rem !important;
+}
+
+.h-screen {
+  height: 100vh !important;
+}
+
+.h-20 {
+  height: 5rem !important;
 }
 
 .w-full {
-  width: 100%;
+  width: 100% !important;
+}
+
+.content-center {
+  align-content: center !important;
+}
+
+.justify-center {
+  justify-content: center !important;
+}
+
+.gap-4 {
+  gap: 1rem !important;
 }
 
 .rounded-full {
-  border-radius: 9999px;
+  border-radius: 9999px !important;
 }
 
 .bg-fuchsia-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(240 171 252 / var(--tw-bg-opacity));
-}
-
-.pt-4 {
-  padding-top: 1rem;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(240 171 252 / var(--tw-bg-opacity)) !important;
 }
 
 .pb-4 {
-  padding-bottom: 1rem;
+  padding-bottom: 1rem !important;
 }
 
 .text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
 }
 
-.shadow-md {
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+.font-bold {
+  font-weight: 700 !important;
 }
 
-.shadow-black {
-  --tw-shadow-color: #000;
-  --tw-shadow: var(--tw-shadow-colored);
+.shadow-neutral-600 {
+  --tw-shadow-color: #525252 !important;
+  --tw-shadow: var(--tw-shadow-colored) !important;
+}
+
+.drop-shadow-xl {
+  --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08)) !important;
+  -webkit-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
+          filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
 }
