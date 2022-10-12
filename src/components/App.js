@@ -2,6 +2,7 @@ import './App.css';
 import GameBoard from './GameBoard/GameBoard';
 import {useEffect, useState} from 'react';
 import GameId from './GameId';
+import {writeGameData} from '../services/firebase/database';
 
 const randomId = Date.now().toString(36).slice(2);
 
@@ -15,7 +16,9 @@ function App() {
     const [gameId, setGameId] = useState(randomId);
 
     useEffect(() => {
-        setAsString(JSON.stringify(fields));
+        const gameString = JSON.stringify(fields);
+        setAsString(gameString);
+        writeGameData(gameId, gameString);
     }, [fields]);
 
     const handleClick = (event) => {
