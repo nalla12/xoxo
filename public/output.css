@@ -549,20 +549,8 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.flex {
-  display: flex !important;
-}
-
 .grid {
   display: grid !important;
-}
-
-.h-screen {
-  height: 100vh !important;
-}
-
-.h-20 {
-  height: 5rem !important;
 }
 
 .h-screen {
@@ -579,10 +567,6 @@ video {
 
 .content-center {
   align-content: center !important;
-}
-
-.justify-center {
-  justify-content: center !important;
 }
 
 .gap-4 {
