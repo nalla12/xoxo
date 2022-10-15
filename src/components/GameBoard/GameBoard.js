@@ -10,7 +10,7 @@ const GameBoard = ({fields, handleClick}) => {
                             {row.map((col, colIndex) => (
                                 <Col key={colIndex}>
                                     <button
-                                        className="h-24 w-24 rounded-full
+                                        className="h-24 w-full rounded-full
                                         shadow-neutral-600 drop-shadow-xl bg-fuchsia-300
                                         text-2xl font-bold text-violet-800"
                                         onClick={handleClick}

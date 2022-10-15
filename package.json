@@ -5,6 +5,7 @@
     "scripts": {
         "start": "react-scripts start",
         "eslint": "npx eslint \"src/**\" --fix",
+        "tailwind": "npx tailwindcss -i ./src/input.css -o ./public/output.css",
         "tailwind watch": "npx tailwindcss -i ./src/input.css -o ./public/output.css --watch",
         "build": "react-scripts build",
         "build & deploy": "react-scripts build && firebase deploy",
