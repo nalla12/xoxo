@@ -5,8 +5,9 @@
     "scripts": {
         "start": "react-scripts start",
         "eslint": "npx eslint \"src/**\" --fix",
-        "tailwind-watch": "npx tailwindcss -i ./src/input.css -o ./public/output.css --watch",
+        "tailwind watch": "npx tailwindcss -i ./src/input.css -o ./public/output.css --watch",
         "build": "react-scripts build",
+        "build & deploy": "react-scripts build && firebase deploy",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },

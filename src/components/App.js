@@ -9,9 +9,9 @@ const randomId = Date.now().toString(36).slice(2);
 function App() {
     const firstRender = useRef(true);
     const [fields, setFields] = useState([
-        ['', '', ''],
-        ['', '', ''],
-        ['', '', ''],
+        [null, null, null],
+        [null, null, null],
+        [null, null, null],
     ]);
     const [gameId, setGameId] = useState(randomId);
     const handleDbCurrentGame = (gameData) => {
@@ -34,7 +34,7 @@ function App() {
 
     useEffect(() => {
         firebaseAuth()
-            .then((res) => console.log('Firebase auth:', res))
+            .then((res) => console.log('Auth:', res))
             .catch((err) => console.error(err));
 
         firstRender.current = false;
