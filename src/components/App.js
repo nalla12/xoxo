@@ -1,25 +1,44 @@
 import './App.css';
+import {useEffect, useRef, useState} from 'react';
+import {firebaseAuth, subscribeCurrentGame, writeGameData} from '../services/firebase/database';
 import GameBoard from './GameBoard/GameBoard';
-import {useEffect, useState} from 'react';
 import GameId from './GameId';
-import {writeGameData} from '../services/firebase/database';
 
 const randomId = Date.now().toString(36).slice(2);
 
 function App() {
+    const firstRender = useRef(true);
     const [fields, setFields] = useState([
         ['', '', ''],
         ['', '', ''],
         ['', '', ''],
     ]);
-    const [asString, setAsString] = useState('');
     const [gameId, setGameId] = useState(randomId);
+    const handleDbCurrentGame = (gameData) => {
+        !!gameData && setFields(JSON.parse(gameData));
+    };
 
     useEffect(() => {
-        const gameString = JSON.stringify(fields);
-        setAsString(gameString);
-        writeGameData(gameId, gameString);
+        if (!firstRender.current) {
+            const gameString = JSON.stringify(fields);
+            writeGameData(gameId, gameString);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [fields]);
+
+    useEffect(() => {
+        if (!firstRender.current) {
+            subscribeCurrentGame(gameId, handleDbCurrentGame);
+        }
+    }, [gameId]);
+
+    useEffect(() => {
+        firebaseAuth()
+            .then((res) => console.log('Firebase auth:', res))
+            .catch((err) => console.error(err));
+
+        firstRender.current = false;
+    }, []);
 
     const handleClick = (event) => {
         const val = event.target.value;

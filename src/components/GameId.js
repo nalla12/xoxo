@@ -7,7 +7,7 @@ const GameId = ({gameId, setGameId}) => {
     const [showInput, setShowInput] = useState(false);
     const [userInput, setUserInput] = useState('');
 
-    const handleClick = () => {
+    const openInput = () => {
         setShowInput(true);
     };
 
@@ -15,7 +15,7 @@ const GameId = ({gameId, setGameId}) => {
         setUserInput(event.target.value);
     };
 
-    const onKeyDown = (event) => {
+    const submitAndClose = (event) => {
         if (event.key === 'Enter') {
             event.preventDefault();
             setGameId(userInput);
@@ -32,10 +32,10 @@ const GameId = ({gameId, setGameId}) => {
             <Row justifyContent='center'>
                 <Col sm={5}>
                     <h2 className='text-2xl pb-4'>Game ID: {gameId}</h2>
-                    {!showInput && <Button isBasic onClick={handleClick}>Change Game ID</Button>}
+                    {!showInput && <Button isBasic onClick={openInput}>Change Game ID</Button>}
                     {showInput && (
                         <Field>
-                            <Input onChange={onChange} onKeyDown={onKeyDown} />
+                            <Input onChange={onChange} onKeyDown={submitAndClose} />
                         </Field>
                     )}
                 </Col>
