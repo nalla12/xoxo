@@ -3,6 +3,7 @@ import {useEffect, useRef, useState} from 'react';
 import {firebaseAuth, subscribeCurrentGame, writeGameData} from '../services/firebase/database';
 import GameBoard from './GameBoard/GameBoard';
 import GameId from './GameId';
+import ChooseLetter from './ChooseLetter';
 
 const randomId = Date.now().toString(36).slice(2);
 
@@ -14,6 +15,8 @@ function App() {
         [null, null, null],
     ]);
     const [gameId, setGameId] = useState(randomId);
+    const [selectedLetter, setSelectedLetter] = useState('X');
+
     const handleDbCurrentGame = (gameData) => {
         !!gameData && setFields(JSON.parse(gameData));
     };
@@ -49,27 +52,32 @@ function App() {
         switch (val) {
             case '':
                 setFields(() => {
-                    newFields[rowIndex][colIndex] = 'X';
+                    newFields[rowIndex][colIndex] =
+                        selectedLetter === 'X'
+                            ? 'X'
+                            : selectedLetter === 'O'
+                                ? 'O'
+                                : '';
                     return newFields;
                 });
                 break;
             case 'X':
-                setFields(() => {
-                    newFields[rowIndex][colIndex] = 'O';
-                    return newFields;
-                });
+                if (selectedLetter === 'X') {
+                    setFields(() => {
+                        newFields[rowIndex][colIndex] = '';
+                        return newFields;
+                    });
+                }
                 break;
             case 'O':
-                setFields(() => {
-                    newFields[rowIndex][colIndex] = '';
-                    return newFields;
-                });
+                if (selectedLetter === 'O') {
+                    setFields(() => {
+                        newFields[rowIndex][colIndex] = '';
+                        return newFields;
+                    });
+                }
                 break;
             default:
-                setFields(() => {
-                    newFields[rowIndex][colIndex] = 'X';
-                    return newFields;
-                });
                 break;
         }
     };
@@ -77,6 +85,7 @@ function App() {
     return (
         <div className='App h-screen grid gap-4 content-center'>
             <GameId gameId={gameId} setGameId={setGameId} />
+            <ChooseLetter selectedLetter={selectedLetter} setSelectedLetter={setSelectedLetter} />
             <GameBoard fields={fields} handleClick={handleClick} />
         </div>
     );

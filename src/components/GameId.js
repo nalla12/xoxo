@@ -31,11 +31,14 @@ const GameId = ({gameId, setGameId}) => {
         <Grid>
             <Row justifyContent='center'>
                 <Col sm={5}>
-                    <h2 className='text-2xl pb-4'>Game ID: {gameId}</h2>
+                    <h2 className='text-2xl inline-block pb-4'>
+                        Game ID: {gameId}
+                    </h2>
                     {!showInput && <Button isBasic onClick={openInput}>Change Game ID</Button>}
                     {showInput && (
-                        <Field>
-                            <Input onChange={onChange} onKeyDown={submitAndClose} />
+                        <Field className='inline-block px-2.5' style={{top: '-7px'}}>
+                            <Input onChange={onChange} onKeyDown={submitAndClose}
+                                style={{maxWidth: '120px'}} isCompact />
                         </Field>
                     )}
                 </Col>
