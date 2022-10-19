@@ -1,5 +1,6 @@
 import './App.css';
 import {useEffect, useRef, useState} from 'react';
+import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import {firebaseAuth, subscribeCurrentGame, writeGameData} from '../services/firebase/database';
 import GameBoard from './GameBoard/GameBoard';
 import GameId from './GameId';
@@ -16,6 +17,7 @@ function App() {
     ]);
     const [gameId, setGameId] = useState(randomId);
     const [selectedLetter, setSelectedLetter] = useState('X');
+    const currentPath = window.location.pathname;
 
     const handleDbCurrentGame = (gameData) => {
         !!gameData && setFields(JSON.parse(gameData));
@@ -30,12 +32,12 @@ function App() {
     }, [fields]);
 
     useEffect(() => {
-        if (!firstRender.current) {
-            subscribeCurrentGame(gameId, handleDbCurrentGame);
-        }
+        subscribeCurrentGame(gameId, handleDbCurrentGame);
     }, [gameId]);
 
     useEffect(() => {
+        !!currentPath.slice(1) && setGameId(currentPath.slice(1));
+
         firebaseAuth()
             .then((res) => console.log('Auth:', res))
             .catch((err) => console.error(err));
@@ -84,9 +86,11 @@ function App() {
 
     return (
         <div className='App h-screen grid gap-4 content-center'>
-            <GameId gameId={gameId} setGameId={setGameId} />
-            <ChooseLetter selectedLetter={selectedLetter} setSelectedLetter={setSelectedLetter} />
-            <GameBoard fields={fields} handleClick={handleClick} />
+            <ThemeProvider theme={{ ...DEFAULT_THEME, rtl: false }}>
+                <GameId gameId={gameId} setGameId={setGameId} />
+                <ChooseLetter selectedLetter={selectedLetter} setSelectedLetter={setSelectedLetter} />
+                <GameBoard fields={fields} handleClick={handleClick} />
+            </ThemeProvider>
         </div>
     );
 }

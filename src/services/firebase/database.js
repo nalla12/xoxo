@@ -22,6 +22,7 @@ export function writeGameData(gameId, gameAsString) {
 }
 
 export function subscribeCurrentGame(gameId, dataReceiver) {
+    console.warn('Subscribed to ' + gameId);
     onValue(ref(db, 'games/' + gameId + '/currentGame'), (snapshot) => {
         const data = snapshot.val();
         dataReceiver(data);
