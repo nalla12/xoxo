@@ -7,17 +7,17 @@ const GameBoard = ({fields, handleClick}) => {
                 <Col>
                     {fields.map((row, rowIndex) => (
                         <Row key={rowIndex} className='pb-4' justifyContent='center'>
-                            {row.map((col, colIndex) => (
+                            {row.map((letter, colIndex) => (
                                 <Col key={colIndex}>
                                     <button
-                                        className='h-24 w-full rounded-full
+                                        className='h-24 w-full
                                         shadow-neutral-600 drop-shadow-xl bg-fuchsia-300
-                                        text-2xl font-bold text-violet-800'
+                                        text-4xl font-bold text-violet-800'
                                         onClick={handleClick}
-                                        value={col}
+                                        value={letter}
                                         data-id={`${rowIndex}-${colIndex}`}
                                     >
-                                        {col}
+                                        {letter}
                                     </button>
                                 </Col>
                             ))}
