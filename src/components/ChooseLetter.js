@@ -1,19 +1,24 @@
-const ChooseLetter = ({selectedLetter, setSelectedLetter}) => {
+const ChooseLetter = ({selectedLetter, setSelectedLetter, primaryColor}) => {
     const selectedClass = 'h-10 w-14 rounded-full' +
-        'shadow-neutral-600 drop-shadow-xl bg-fuchsia-300';
+        'shadow-neutral-600 drop-shadow-xl';
     const notSelectedClass = 'h-10 w-14 rounded-full' +
-        'shadow-neutral-600 drop-shadow-xl bg-white';
+        'shadow-neutral-600 drop-shadow-xl';
 
     const handleClick = (event) => {
         setSelectedLetter(event.target.value);
     };
 
     return (
-        <div>
+        <div style={{display: 'inline-block'}}>
             <button
                 className={selectedLetter === 'X'
                     ? selectedClass
                     : notSelectedClass}
+                style={
+                    selectedLetter === 'X'
+                        ? {backgroundColor: primaryColor}
+                        : {backgroundColor: '#FFF'}
+                }
                 onClick={handleClick}
                 value='X'>
                 X
@@ -22,6 +27,11 @@ const ChooseLetter = ({selectedLetter, setSelectedLetter}) => {
                 className={selectedLetter === 'O'
                     ? selectedClass
                     : notSelectedClass}
+                style={
+                    selectedLetter === 'O'
+                        ? {backgroundColor: primaryColor}
+                        : {backgroundColor: '#FFF'}
+                }
                 onClick={handleClick}
                 value='O'>
                 O
