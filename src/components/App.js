@@ -1,10 +1,12 @@
 import './App.css';
 import {useEffect, useRef, useState} from 'react';
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import {Col, Grid, Row} from '@zendeskgarden/react-grid';
 import {firebaseAuth, subscribeCurrentGame, writeGameData} from '../services/firebase/database';
 import GameBoard from './GameBoard/GameBoard';
 import GameId from './GameId';
 import ChooseLetter from './ChooseLetter';
+import ColorChanger from './ColorChanger';
 
 const randomId = Date.now().toString(36).slice(2);
 
@@ -17,6 +19,7 @@ function App() {
     ]);
     const [gameId, setGameId] = useState(randomId);
     const [selectedLetter, setSelectedLetter] = useState('X');
+    const [primaryColor, setPrimaryColor] = useState('#F0ABFC');
     const currentPath = window.location.pathname;
 
     const handleDbCurrentGame = (gameData) => {
@@ -87,9 +90,26 @@ function App() {
     return (
         <div className='App h-screen grid gap-4 content-center'>
             <ThemeProvider theme={{ ...DEFAULT_THEME, rtl: false }}>
-                <GameId gameId={gameId} setGameId={setGameId} />
-                <ChooseLetter selectedLetter={selectedLetter} setSelectedLetter={setSelectedLetter} />
-                <GameBoard fields={fields} handleClick={handleClick} />
+                <Grid>
+                    <Row>
+                        <Col>
+                            <GameId gameId={gameId} setGameId={setGameId} />
+                        </Col>
+                    </Row>
+                    <Row className='mb-4'>
+                        <Col>
+                            <ColorChanger primaryColor={primaryColor} setPrimaryColor={setPrimaryColor} />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <ChooseLetter selectedLetter={selectedLetter} setSelectedLetter={setSelectedLetter} primaryColor={primaryColor} />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <GameBoard fields={fields} handleClick={handleClick} bgColor={primaryColor} />
+                    </Row>
+                </Grid>
             </ThemeProvider>
         </div>
     );
