@@ -6,3 +6,7 @@
 div[data-garden-id="modals.tooltip_modal"] {
     width: auto;
 }
+
+div[data-garden-id="colorpickers.colorpicker_input_group"] {
+    display: none;
+}

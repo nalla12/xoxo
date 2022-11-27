@@ -1,4 +1,4 @@
-const ChooseLetter = ({selectedLetter, setSelectedLetter, primaryColor}) => {
+const SwitchLetter = ({selectedLetter, setSelectedLetter, primaryColor}) => {
     const selectedClass = 'h-10 w-14 rounded-full' +
         'shadow-neutral-600 drop-shadow-xl';
     const notSelectedClass = 'h-10 w-14 rounded-full' +
@@ -40,4 +40,4 @@ const ChooseLetter = ({selectedLetter, setSelectedLetter, primaryColor}) => {
     );
 };
 
-export default ChooseLetter;
+export default SwitchLetter;
