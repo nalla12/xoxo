@@ -5,7 +5,7 @@ import {Col, Grid, Row} from '@zendeskgarden/react-grid';
 import {firebaseAuth, subscribeCurrentGame, writeGameData} from '../services/firebase/database';
 import GameBoard from './GameBoard';
 import GameId from './GameId';
-import ChooseLetter from './ChooseLetter';
+import SwitchLetter from './SwitchLetter';
 import ColorChanger from './ColorChanger';
 
 const randomId = Date.now().toString(36).slice(2);
@@ -103,7 +103,7 @@ function App() {
                     </Row>
                     <Row>
                         <Col>
-                            <ChooseLetter selectedLetter={selectedLetter} setSelectedLetter={setSelectedLetter} primaryColor={primaryColor} />
+                            <SwitchLetter selectedLetter={selectedLetter} setSelectedLetter={setSelectedLetter} primaryColor={primaryColor} />
                         </Col>
                     </Row>
                     <Row>
