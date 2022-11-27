@@ -1,9 +1,9 @@
-import './App.css';
+import '../styles/app.css';
 import {useEffect, useRef, useState} from 'react';
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import {Col, Grid, Row} from '@zendeskgarden/react-grid';
 import {firebaseAuth, subscribeCurrentGame, writeGameData} from '../services/firebase/database';
-import GameBoard from './GameBoard/GameBoard';
+import GameBoard from './GameBoard';
 import GameId from './GameId';
 import ChooseLetter from './ChooseLetter';
 import ColorChanger from './ColorChanger';
