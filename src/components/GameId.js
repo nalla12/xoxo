@@ -28,7 +28,7 @@ const GameId = ({gameId, setGameId}) => {
     };
 
     const copyLink = () => {
-        if (!!window.location.pathname.slice(1)) {
+        if (window.location.pathname.slice(1)) {
             navigator.clipboard.writeText(window.location);
         } else {
             navigator.clipboard.writeText(`${window.location}${gameId}`);
@@ -55,7 +55,7 @@ const GameId = ({gameId, setGameId}) => {
                 </Col>
             </Row>
             <Row justifyContent='center'>
-                <Col sm={5}>
+                <Col xs={12} sm={'auto'}>
                     {!showInput && <Button isBasic onClick={openInput}>Change Game ID</Button>}
                     {showInput && (
                         <Field className='inline-block px-2.5' style={{top: '-7px'}}>
@@ -63,6 +63,8 @@ const GameId = ({gameId, setGameId}) => {
                                 style={{fontSize: '1rem', maxWidth: '120px'}} isCompact />
                         </Field>
                     )}
+                </Col>
+                <Col xs={12} sm={'auto'}>
                     <Button className='mb-2'
                         isBasic ref={buttonRef}
                         onClick={() => {

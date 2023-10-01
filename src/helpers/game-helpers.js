@@ -1,5 +1,5 @@
 export function calculateWinner(fields) {
-    const flatFields = fields.flat();
+    const flats = fields.flat();
     const winningLines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -11,10 +11,9 @@ export function calculateWinner(fields) {
         [2, 4, 6],
     ];
     for (let i = 0; i < winningLines.length; i++) {
-        console.log('calculateWinner looping');
         const [a, b, c] = winningLines[i];
-        if (flatFields[a] && flatFields[a] === flatFields[b] && flatFields[a] === flatFields[c]) {
-            return flatFields[a];
+        if (flats[a] && flats[a] === flats[b] && flats[a] === flats[c]) {
+            return flats[a];
         }
     }
     return null;

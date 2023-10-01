@@ -553,9 +553,9 @@ video {
   width: 100%;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 480px) {
   .container {
-    max-width: 640px;
+    max-width: 480px;
   }
 }
 
@@ -565,21 +565,15 @@ video {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 976px) {
   .container {
-    max-width: 1024px;
+    max-width: 976px;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   .container {
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
+    max-width: 1440px;
   }
 }
 
@@ -603,32 +597,24 @@ video {
   height: 100vh !important;
 }
 
-.h-24 {
-  height: 6rem !important;
-}
-
-.h-10 {
-  height: 2.5rem !important;
-}
-
-.h-24 {
-  height: 6rem !important;
+.h-20 {
+  height: 5rem !important;
 }
 
 .h-full {
   height: 100% !important;
 }
 
-.w-full {
-  width: 100% !important;
+.h-10 {
+  height: 2.5rem !important;
+}
+
+.w-16 {
+  width: 4rem !important;
 }
 
 .w-14 {
   width: 3.5rem !important;
-}
-
-.w-full {
-  width: 100% !important;
 }
 
 .content-center {
@@ -661,10 +647,6 @@ video {
   padding-bottom: 0px !important;
 }
 
-.pb-4 {
-  padding-bottom: 1rem !important;
-}
-
 .text-4xl {
   font-size: 2.25rem !important;
   line-height: 2.5rem !important;
@@ -673,11 +655,6 @@ video {
 .text-2xl {
   font-size: 1.5rem !important;
   line-height: 2rem !important;
-}
-
-.text-4xl {
-  font-size: 2.25rem !important;
-  line-height: 2.5rem !important;
 }
 
 .font-bold {
@@ -698,4 +675,14 @@ video {
   --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08)) !important;
   -webkit-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
           filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow) !important;
+}
+
+@media (min-width: 480px) {
+  .sm\:h-28 {
+    height: 7rem !important;
+  }
+
+  .sm\:w-24 {
+    width: 6rem !important;
+  }
 }
