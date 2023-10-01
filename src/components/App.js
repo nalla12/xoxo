@@ -1,5 +1,5 @@
 import '../styles/app.css';
-import {useEffect, useRef, useState} from 'react';
+import {useEffect, useMemo, useRef, useState} from 'react';
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import {Col, Grid, Row} from '@zendeskgarden/react-grid';
 import {firebaseAuth, subscribeCurrentGame, writeGameData} from '../services/firebase/database';
@@ -7,24 +7,30 @@ import GameBoard from './GameBoard';
 import GameId from './GameId';
 import SwitchLetter from './SwitchLetter';
 import ColorChanger from './ColorChanger';
+import {calculateWinner} from '../helpers/game-helpers';
 
 const randomId = Date.now().toString(36).slice(2);
 
 function App() {
     const firstRender = useRef(true);
     const [fields, setFields] = useState([
-        [null, null, null],
-        [null, null, null],
-        [null, null, null],
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', ''],
     ]);
     const [gameId, setGameId] = useState(randomId);
     const [selectedLetter, setSelectedLetter] = useState('X');
     const [primaryColor, setPrimaryColor] = useState('#F0ABFC');
     const currentPath = window.location.pathname;
+    const winner = useMemo(() => calculateWinner(fields), [fields]);
 
     const handleDbCurrentGame = (gameData) => {
         !!gameData && setFields(JSON.parse(gameData));
     };
+
+    useEffect(() => {
+        console.log('winner:', winner);
+    }, [winner]);
 
     useEffect(() => {
         if (!firstRender.current) {
