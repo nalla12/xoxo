@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from 'react';
-import {Col, Grid, Row} from '@zendeskgarden/react-grid';
+import {Col, Row} from '@zendeskgarden/react-grid';
 import {Field, Input} from '@zendeskgarden/react-forms';
 import { Button } from '@zendeskgarden/react-buttons';
 import { TooltipModal } from '@zendeskgarden/react-modals';

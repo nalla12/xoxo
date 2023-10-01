@@ -1,4 +1,4 @@
-import {Col, Grid, Row} from '@zendeskgarden/react-grid';
+import {Col, Row} from '@zendeskgarden/react-grid';
 
 const GameBoard = ({fields, handleClick, bgColor}) => {
     return (
