@@ -1,16 +1,16 @@
-import {Col, Grid, Row} from '@zendeskgarden/react-grid';
+import {Col, Row} from '@zendeskgarden/react-grid';
 
 const GameBoard = ({fields, handleClick, bgColor}) => {
     return (
-        <Grid>
-            <Row alignItems='center' justifyContent='center' style={{padding: '2rem'}}>
+        <>
+            <Row alignItems='center' justifyContent='center'>
                 <Col>
                     {fields.map((row, rowIndex) => (
-                        <Row key={rowIndex} className='pb-4' justifyContent='center'>
+                        <Row key={rowIndex} className='h-20 sm:h-28 pb-4' justifyContent='center'>
                             {row.map((letter, colIndex) => (
-                                <Col key={colIndex}>
+                                <Col key={colIndex} size={'auto'}>
                                     <button
-                                        className='h-24 w-full
+                                        className='h-full w-16 sm:w-24
                                         shadow-neutral-600 drop-shadow-xl
                                         text-4xl font-bold text-violet-800'
                                         style={{backgroundColor: bgColor}}
@@ -26,7 +26,7 @@ const GameBoard = ({fields, handleClick, bgColor}) => {
                     ))}
                 </Col>
             </Row>
-        </Grid>
+        </>
     );
 };
 
