@@ -6,11 +6,11 @@ const GameBoard = ({fields, handleClick, bgColor}) => {
             <Row alignItems='center' justifyContent='center' style={{padding: '2rem'}}>
                 <Col>
                     {fields.map((row, rowIndex) => (
-                        <Row key={rowIndex} className='pb-4' justifyContent='center'>
+                        <Row key={rowIndex} className='h-24 pb-4' justifyContent='center'>
                             {row.map((letter, colIndex) => (
                                 <Col key={colIndex}>
                                     <button
-                                        className='h-24 w-full
+                                        className='h-full w-full
                                         shadow-neutral-600 drop-shadow-xl
                                         text-4xl font-bold text-violet-800'
                                         style={{backgroundColor: bgColor}}

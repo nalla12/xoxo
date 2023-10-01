@@ -31,7 +31,6 @@ function App() {
             const gameString = JSON.stringify(fields);
             writeGameData(gameId, gameString);
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [fields]);
 
     useEffect(() => {
