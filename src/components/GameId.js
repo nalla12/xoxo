@@ -46,7 +46,7 @@ const GameId = ({gameId, setGameId}) => {
     }, []);
 
     return (
-        <Grid>
+        <>
             <Row justifyContent='center'>
                 <Col sm={5}>
                     <h2 className='text-2xl inline-block pb-0'>
@@ -84,7 +84,7 @@ const GameId = ({gameId, setGameId}) => {
                     </TooltipModal>
                 </Col>
             </Row>
-        </Grid>
+        </>
     );
 };
 

@@ -8,6 +8,7 @@ import GameId from './GameId';
 import SwitchLetter from './SwitchLetter';
 import ColorChanger from './ColorChanger';
 import {calculateWinner} from '../helpers/game-helpers';
+import {Button} from '@zendeskgarden/react-buttons';
 
 const randomId = Date.now().toString(36).slice(2);
 
@@ -27,10 +28,6 @@ function App() {
     const handleDbCurrentGame = (gameData) => {
         !!gameData && setFields(JSON.parse(gameData));
     };
-
-    useEffect(() => {
-        console.log('winner:', winner);
-    }, [winner]);
 
     useEffect(() => {
         if (!firstRender.current) {
@@ -54,6 +51,8 @@ function App() {
     }, []);
 
     const handleClick = (event) => {
+        if (winner) return;
+
         const val = event.target.value;
         const rowIndex = event.target.dataset.id.split('-')[0];
         const colIndex = event.target.dataset.id.split('-')[1];
@@ -92,28 +91,40 @@ function App() {
         }
     };
 
+    const handleReset = () => {
+        setFields([
+            ['', '', ''],
+            ['', '', ''],
+            ['', '', ''],
+        ]);
+    };
+
     return (
         <div className='App h-screen grid gap-4 content-center'>
             <ThemeProvider theme={{ ...DEFAULT_THEME, rtl: false }}>
                 <Grid>
-                    <Row>
-                        <Col>
-                            <GameId gameId={gameId} setGameId={setGameId} />
-                        </Col>
-                    </Row>
-                    <Row className='mb-4'>
-                        <Col>
-                            <ColorChanger primaryColor={primaryColor} setPrimaryColor={setPrimaryColor} />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <SwitchLetter selectedLetter={selectedLetter} setSelectedLetter={setSelectedLetter} primaryColor={primaryColor} />
-                        </Col>
-                    </Row>
-                    <Row>
+                    <Row><Col>
+                        <GameId gameId={gameId} setGameId={setGameId} />
+                    </Col></Row>
+                    <Row className='mb-4'><Col>
+                        <ColorChanger primaryColor={primaryColor} setPrimaryColor={setPrimaryColor} />
+                    </Col></Row>
+                    <Row className='mb-4'><Col>
+                        <SwitchLetter
+                            selectedLetter={selectedLetter}
+                            setSelectedLetter={setSelectedLetter}
+                            primaryColor={primaryColor}
+                        />
+                    </Col></Row>
+                    {winner && <Row className='mb-4'><Col>
+                        <h2 className='text-2xl'>Winner: {winner}</h2>
+                        <Button isBasic onClick={handleReset}>
+                            Reset game
+                        </Button>
+                    </Col></Row>}
+                    <Row><Col>
                         <GameBoard fields={fields} handleClick={handleClick} bgColor={primaryColor} />
-                    </Row>
+                    </Col></Row>
                 </Grid>
             </ThemeProvider>
         </div>

@@ -2,8 +2,8 @@ import {Col, Grid, Row} from '@zendeskgarden/react-grid';
 
 const GameBoard = ({fields, handleClick, bgColor}) => {
     return (
-        <Grid>
-            <Row alignItems='center' justifyContent='center' style={{padding: '2rem'}}>
+        <>
+            <Row alignItems='center' justifyContent='center'>
                 <Col>
                     {fields.map((row, rowIndex) => (
                         <Row key={rowIndex} className='h-20 sm:h-28 pb-4' justifyContent='center'>
@@ -26,7 +26,7 @@ const GameBoard = ({fields, handleClick, bgColor}) => {
                     ))}
                 </Col>
             </Row>
-        </Grid>
+        </>
     );
 };
 
