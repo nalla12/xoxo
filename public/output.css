@@ -585,8 +585,16 @@ video {
   margin-bottom: 0.5rem !important;
 }
 
+.mb-4 {
+  margin-bottom: 1rem !important;
+}
+
 .inline-block {
   display: inline-block !important;
+}
+
+.inline {
+  display: inline !important;
 }
 
 .grid {
@@ -607,6 +615,10 @@ video {
 
 .h-10 {
   height: 2.5rem !important;
+}
+
+.h-screen {
+  height: 100vh !important;
 }
 
 .w-16 {
@@ -645,6 +657,14 @@ video {
 
 .pb-0 {
   padding-bottom: 0px !important;
+}
+
+.pr-1 {
+  padding-right: 0.25rem !important;
+}
+
+.pr-2 {
+  padding-right: 0.5rem !important;
 }
 
 .text-4xl {
