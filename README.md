@@ -1,1 +1,1 @@
-# Kryds og bolle spil
+# A tic-tac-toe game with online multiplayer
